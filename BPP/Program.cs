@@ -1,5 +1,9 @@
 ﻿using BPP.Aula9.StrategySystem.Context;
 using BPP.Aula9.StrategySystem.Strategy.TiposPagamento;
+using BPP.Aula9.TemplateMethod;
+using BPP.Aula9.TemplateMethod.CreditMethod;
+using BPP.Aula9.TemplateMethod.DebitMethod;
+using BPP.Aula9.TemplateMethod.PIXMethod;
 using System;
 
 namespace BPP
@@ -8,20 +12,18 @@ namespace BPP
     {
         public static void Main(string[] args)
         {
-            PagamentoContext pagamentoContext = new PagamentoContext();
-            IPagamento tipoPagamento = pagamentoContext.getStrategyPagamento("Credito");
-            double resultado = tipoPagamento.Calcular(50);
-            Console.WriteLine($"Resultado utilizando CRÉDITO: {resultado}");
+            Console.WriteLine("Operação com PIX:");
+            Client.ClientCode(new PIX());
 
+            Console.Write("\n");
 
-            tipoPagamento = pagamentoContext.getStrategyPagamento("Debito");
-            resultado = tipoPagamento.Calcular(100);
-            Console.WriteLine($"Resultado utilizando DÉBITO: {resultado}");
+            Console.WriteLine("Operação com CRÉDITO:");
+            Client.ClientCode(new Credit());
 
+            Console.Write("\n");
 
-            tipoPagamento = pagamentoContext.getStrategyPagamento("PIX");
-            resultado = tipoPagamento.Calcular(140);
-            Console.WriteLine($"Resultado utilizando PIX: {resultado}");
+            Console.WriteLine("Operação com DÉBITO:");
+            Client.ClientCode(new Debit());
         }
     }
 }

@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace BPP.Aula9.StrategySystem.Context
 {
-    public class PagamentoContext
+    public class TipoPagamentoContext
     {
         public IPagamento getStrategyPagamento(string tipoPagamento)
         {
-            if (tipoPagamento == "Credito")
+            if (tipoPagamento == "CREDITO")
             {
                 return new CreditoStrategy();
             }
-            if (tipoPagamento == "Debito")
+            if (tipoPagamento == "DEBITO")
             {
                 return new DebitoStrategy();
             }
@@ -29,11 +29,11 @@ namespace BPP.Aula9.StrategySystem.Context
 
         public double CalcularPagamento(string tipoPagamento, double valor)
         {
-            if (tipoPagamento == "Credito")
+            if (tipoPagamento == "CREDITO")
             {
                 return new CreditoStrategy().Calcular(valor);
             }
-            if (tipoPagamento == "Debito")
+            if (tipoPagamento == "DEBITO")
             {
                 return new DebitoStrategy().Calcular(valor);
             }
