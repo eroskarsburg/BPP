@@ -11,7 +11,7 @@ namespace BPP.Aula9.TemplateMethod.CreditMethod
 {
     public class Credit : Template
     {
-        TipoPagamentoContext pagamentoContext = new TipoPagamentoContext();
+        TipoPagamentoContext pagamentoContext = new();
 
         protected override void GenericOperation()
         {
