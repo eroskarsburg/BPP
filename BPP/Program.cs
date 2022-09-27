@@ -4,6 +4,7 @@ using BPP.Aula9.TemplateMethod;
 using BPP.Aula9.TemplateMethod.CreditMethod;
 using BPP.Aula9.TemplateMethod.DebitMethod;
 using BPP.Aula9.TemplateMethod.PIXMethod;
+using BPP.Observer;
 using System;
 
 namespace BPP
@@ -24,6 +25,25 @@ namespace BPP
 
             Console.WriteLine("Operação com DÉBITO:");
             Client.ClientCode(new Debit());
+
+            //DevListener devListener = new DevListener();
+            //SecretariaListener secretariaListener = new SecretariaListener();
+            //Telefone telefone = new Telefone();
+            //telefone.AdicionarListener(devListener);
+            //telefone.AdicionarListener(secretariaListener);
+
+            //while (true)
+            //{
+            //    Console.WriteLine("-----------------");
+            //    Console.WriteLine("Digite a mensagem: ");
+            //    string mensagem = Console.ReadLine();
+            //    if (mensagem == "sair")
+            //    {
+            //        break;
+            //    }
+            //    telefone.mensagem = mensagem;
+            //    Console.WriteLine("-----------------\n");
+            //}
         }
     }
 }
