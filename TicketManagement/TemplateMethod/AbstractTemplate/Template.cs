@@ -8,12 +8,19 @@ namespace TicketManagement.TemplateMethod.AbstractTemplate
     {
         // Design Pattern: TEMPLATE
 
-        public void InitialTemplate()
+        public void TemplateGenerator()
         {
             this.TemplatePaymentMethod();
             this.ChosePaymentMethod();
             this.TemplateChair();
             this.ChoseChair();
+            this.TemplateTicketType();
+            this.ChoseTicketType();
+            this.TemplateDatabaseSaver();
+            this.ChoseDatabaseSaver();
+            this.TemplatePriceInformer();
+            this.PriceInformation();
+            this.NFEGenerator();
         }
 
         protected void TemplatePaymentMethod()
@@ -28,20 +35,20 @@ namespace TicketManagement.TemplateMethod.AbstractTemplate
         protected void TemplateChair()
         {
             Console.WriteLine("\n=---------=");
-            Console.WriteLine("Enter the CHAIR number:");
+            Console.WriteLine("Enter the Chair number:");
         }
 
-        protected void TemplateTicket()
+        protected void TemplateTicketType()
         {
             Console.WriteLine("\n=---------=");
-            Console.WriteLine("What kind of Ticket do you want?\n");
+            Console.WriteLine("What kind of Ticket do you desire?\n");
             Console.WriteLine("- NORMAL");
             Console.WriteLine("- RETIRED");
             Console.WriteLine("- ARMY");
             Console.WriteLine("- OLD MAN");
         }
 
-        protected void TemplateDataBase()
+        protected void TemplateDatabaseSaver()
         {
             Console.WriteLine("\n=---------=");
             Console.WriteLine("- ORACLE");
@@ -49,6 +56,19 @@ namespace TicketManagement.TemplateMethod.AbstractTemplate
             Console.WriteLine("- SQL");
             Console.WriteLine("- PHP");
         }
+
+        protected void TemplatePriceInformer()
+        {
+            Console.WriteLine("\n=---------=");
+            Console.WriteLine("Enter the payment price:");
+        }
+
+        protected void TemplateNFEGenerator()
+        {
+            Console.WriteLine("\n=---------=");
+            Console.WriteLine("Generating Note...");
+        }
+
         protected abstract void ChosePaymentMethod();
 
         protected abstract void ChoseChair();
@@ -56,5 +76,9 @@ namespace TicketManagement.TemplateMethod.AbstractTemplate
         protected abstract void ChoseTicketType();
 
         protected abstract void ChoseDatabaseSaver();
+
+        protected abstract void PriceInformation();
+
+        protected abstract void NFEGenerator();
     }
 }

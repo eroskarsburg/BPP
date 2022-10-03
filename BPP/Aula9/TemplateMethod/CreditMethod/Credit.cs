@@ -17,7 +17,7 @@ namespace BPP.Aula9.TemplateMethod.CreditMethod
         {
             Console.WriteLine("-------------------\nExecutando CRÉDITO\n");
             IPagamento tipoPagamento = pagamentoContext.getStrategyPagamento("CREDITO");
-            double resultado = tipoPagamento.Calcular(50);
+            double resultado = tipoPagamento.Calcular(90);
             Console.WriteLine($"Resultado utilizando CRÉDITO: {resultado}");
         }
 

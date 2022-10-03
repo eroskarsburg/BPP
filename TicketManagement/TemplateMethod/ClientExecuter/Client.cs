@@ -9,7 +9,7 @@ namespace TicketManagement.TemplateMethod.ClientExecuter
     {
         public static void ClientCode(Template template)
         {
-            template.InitialTemplate();
+            template.TemplateGenerator();
         }
     }
 }
