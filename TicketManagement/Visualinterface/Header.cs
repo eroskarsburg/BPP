@@ -6,11 +6,17 @@ namespace TicketManagement.Visualinterface
 {
     public class Header
     {
-        public void HeaderInterface()
+        public void FirstHeaderInterface()
         {
-            Console.WriteLine("-;------------------;-");
-            Console.WriteLine("Welcome to ticket zone!");
-            Console.WriteLine("What kind of Payment Method you desire?");
+            Console.WriteLine("Starting Operation...\n");
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine(" --> Welcome to ticket zone!");
+            Console.WriteLine("-----------------------------------------\n");
+        }
+
+        public void LastHeaderInterface()
+        {
+            Console.WriteLine("\n");
         }
     }
 }

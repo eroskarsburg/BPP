@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TicketManagement.Visualinterface;
 
 namespace TicketManagement.TemplateMethod.AbstractTemplate
 {
@@ -8,8 +9,12 @@ namespace TicketManagement.TemplateMethod.AbstractTemplate
     {
         // Design Pattern: TEMPLATE
 
+        Header header = new Header();
+        Footer footer = new Footer();
+
         public void TemplateGenerator()
         {
+            header.FirstHeaderInterface();
             this.TemplatePaymentMethod();
             this.ChosePaymentMethod();
             this.TemplateChair();
@@ -20,12 +25,14 @@ namespace TicketManagement.TemplateMethod.AbstractTemplate
             this.ChoseDatabaseSaver();
             this.TemplatePriceInformer();
             this.PriceInformation();
+            header.LastHeaderInterface();
+            footer.FirstFooterInterface();
             this.NFEGenerator();
+            footer.LastFooterInterface();
         }
 
         protected void TemplatePaymentMethod()
         {
-            Console.WriteLine("\n=---------=");
             Console.WriteLine("- MONEY");
             Console.WriteLine("- CREDIT");
             Console.WriteLine("- DEBIT");
@@ -34,13 +41,13 @@ namespace TicketManagement.TemplateMethod.AbstractTemplate
 
         protected void TemplateChair()
         {
-            Console.WriteLine("\n=---------=");
+            Console.WriteLine("\n=------------------=");
             Console.WriteLine("Enter the Chair number:");
         }
 
         protected void TemplateTicketType()
         {
-            Console.WriteLine("\n=---------=");
+            Console.WriteLine("\n=------------------=");
             Console.WriteLine("What kind of Ticket do you desire?\n");
             Console.WriteLine("- NORMAL");
             Console.WriteLine("- RETIRED");
@@ -50,7 +57,7 @@ namespace TicketManagement.TemplateMethod.AbstractTemplate
 
         protected void TemplateDatabaseSaver()
         {
-            Console.WriteLine("\n=---------=");
+            Console.WriteLine("\n=------------------=");
             Console.WriteLine("- ORACLE");
             Console.WriteLine("- MYSQL");
             Console.WriteLine("- SQL");
@@ -59,13 +66,13 @@ namespace TicketManagement.TemplateMethod.AbstractTemplate
 
         protected void TemplatePriceInformer()
         {
-            Console.WriteLine("\n=---------=");
+            Console.WriteLine("\n=------------------=");
             Console.WriteLine("Enter the payment price:");
         }
 
         protected void TemplateNFEGenerator()
         {
-            Console.WriteLine("\n=---------=");
+            Console.WriteLine("\n=------------------=");
             Console.WriteLine("Generating Note...");
         }
 

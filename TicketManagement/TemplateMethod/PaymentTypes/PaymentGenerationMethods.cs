@@ -6,6 +6,7 @@ using TicketManagement.StrategyMethod.Context;
 using TicketManagement.StrategyMethod.Strategy;
 using TicketManagement.TemplateMethod.AbstractTemplate;
 using TicketManagement.Tickets;
+using TicketManagement.Visualinterface;
 
 namespace TicketManagement.TemplateMethod.PaymentTypes
 {
@@ -13,6 +14,8 @@ namespace TicketManagement.TemplateMethod.PaymentTypes
     {
         PaymentTypeContext paymentTypeContext = new PaymentTypeContext();
         DatabaseTypeContext databaseTypeContext = new DatabaseTypeContext();
+        Header header = new Header();
+        Footer footer = new Footer();
         private string chosenPaymentMethod;
         private int chosenChairNumber;
         private string chosenTicketType;
@@ -46,10 +49,9 @@ namespace TicketManagement.TemplateMethod.PaymentTypes
 
         protected override void NFEGenerator()
         {
-            Console.WriteLine("-------------NFE Generator-------------");
             IPayment payment = paymentTypeContext.GetStrategyPayment(chosenPaymentMethod);
             double result = payment.CalculatePrice(informedPrice);
-            Console.WriteLine($"Result with {chosenPaymentMethod} method: {result}");
+            Console.WriteLine($"Result with {chosenPaymentMethod} method: {result} R$");
         }
     }
 }
