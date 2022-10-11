@@ -5,6 +5,7 @@ using BPP.Aula9.TemplateMethod.CreditMethod;
 using BPP.Aula9.TemplateMethod.DebitMethod;
 using BPP.Aula9.TemplateMethod.PIXMethod;
 using BPP.Observer;
+using BPP.ProxyMethod;
 using System;
 
 namespace BPP
@@ -13,18 +14,24 @@ namespace BPP
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Operação com PIX:");
-            Client.ClientCode(new PIX());
+            DatabaseOperationImplement databaseOperationImplement = new DatabaseOperationImplement();
+            DatabaseOperationProxy databaseOperationProxy = new DatabaseOperationProxy(databaseOperationImplement);
 
-            Console.Write("\n");
+            databaseOperationProxy.Update();
 
-            Console.WriteLine("Operação com CRÉDITO:");
-            Client.ClientCode(new Credit());
 
-            Console.Write("\n");
+            //Console.WriteLine("Operação com PIX:");
+            //Client.ClientCode(new PIX());
 
-            Console.WriteLine("Operação com DÉBITO:");
-            Client.ClientCode(new Debit());
+            //Console.Write("\n");
+
+            //Console.WriteLine("Operação com CRÉDITO:");
+            //Client.ClientCode(new Credit());
+
+            //Console.Write("\n");
+
+            //Console.WriteLine("Operação com DÉBITO:");
+            //Client.ClientCode(new Debit());
 
             //DevListener devListener = new DevListener();
             //SecretariaListener secretariaListener = new SecretariaListener();
