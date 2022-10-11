@@ -18,6 +18,9 @@ namespace BPP
             DatabaseOperationProxy databaseOperationProxy = new DatabaseOperationProxy(databaseOperationImplement);
 
             databaseOperationProxy.Update();
+            databaseOperationProxy.Search();
+            databaseOperationProxy.Save();
+            databaseOperationProxy.Delete();
 
 
             //Console.WriteLine("Operação com PIX:");

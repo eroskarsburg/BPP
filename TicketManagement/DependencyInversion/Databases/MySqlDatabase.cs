@@ -10,7 +10,7 @@ namespace TicketManagement.DependencyInversion.Databases
     {
         public void Save(Ticket ticket)
         {
-            Console.WriteLine("Saving in MySql database.");
+            Console.WriteLine("Saving in MYSQL");
         }
     }
 }

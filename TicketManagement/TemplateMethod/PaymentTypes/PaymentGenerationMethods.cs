@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using TicketManagement.DependencyInversion.Databases.GenericDB;
+using TicketManagement.DependencyInversion.Databases.System;
 using TicketManagement.StrategyMethod.Context;
 using TicketManagement.StrategyMethod.Strategy;
 using TicketManagement.TemplateMethod.AbstractTemplate;
@@ -14,6 +15,7 @@ namespace TicketManagement.TemplateMethod.PaymentTypes
     {
         PaymentTypeContext paymentTypeContext = new PaymentTypeContext();
         DatabaseTypeContext databaseTypeContext = new DatabaseTypeContext();
+        Ticket ticket = new Ticket();
         Header header = new Header();
         Footer footer = new Footer();
         private string chosenPaymentMethod;
@@ -50,8 +52,10 @@ namespace TicketManagement.TemplateMethod.PaymentTypes
         protected override void NFEGenerator()
         {
             IPayment payment = paymentTypeContext.GetStrategyPayment(chosenPaymentMethod);
-            double result = payment.CalculatePrice(informedPrice);
-            Console.WriteLine($"Result with {chosenPaymentMethod} method: {result} R$");
+            DatabaseSystem database = databaseTypeContext.GetStrategyDatabase(chosenDatabase);
+            double paymentResult = payment.CalculatePrice(informedPrice);
+            database.Save(new Ticket());
+            Console.WriteLine($"Result with {chosenPaymentMethod} method: {paymentResult} R$");
         }
     }
 }

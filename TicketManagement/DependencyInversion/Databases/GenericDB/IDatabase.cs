@@ -7,9 +7,6 @@ namespace TicketManagement.DependencyInversion.Databases.GenericDB
 {
     public interface IDatabase
     {
-        public string Save(Ticket ticket)
-        {
-            return "";
-        }
+        public void Save(Ticket ticket);
     }
 }

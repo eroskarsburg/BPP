@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BPP.ProxyMethod
@@ -17,57 +18,62 @@ namespace BPP.ProxyMethod
 
         public void Delete()
         {
-            Console.WriteLine("BEGIN TRANSCTION");
+            DateTime dateTimeInicio = DateTime.Now;
+            Console.WriteLine("BEGIN TRANSACTION");
             try
             {
                 DatabaseOperationsImplement.Delete();
-                Console.WriteLine("\nCOMMITED TRANSCTION");
+                Thread.Sleep(5000);
+                Console.WriteLine("COMMITED TRANSACTION\n");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ROLLBACK TRANSCTION");
+                Console.WriteLine("ROLLBACK TRANSACTION");
             }
+            DateTime dateTimeFim = DateTime.Now;
+
+            Console.WriteLine("Execution time: " + dateTimeFim.Subtract(dateTimeInicio));
         }
 
         public void Save()
         {
-            Console.WriteLine("BEGIN TRANSCTION");
+            Console.WriteLine("BEGIN TRANSACTION");
             try
             {
                 DatabaseOperationsImplement.Save();
-                Console.WriteLine("\nCOMMITED TRANSCTION");
+                Console.WriteLine("COMMITED TRANSACTION\n");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ROLLBACK TRANSCTION");
+                Console.WriteLine("ROLLBACK TRANSACTION");
             }
         }
 
         public void Search()
         {
-            Console.WriteLine("BEGIN TRANSCTION");
+            Console.WriteLine("BEGIN TRANSACTION");
             try
             {
                 DatabaseOperationsImplement.Search();
-                Console.WriteLine("\nCOMMITED TRANSCTION");
+                Console.WriteLine("COMMITED TRANSACTION\n");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ROLLBACK TRANSCTION");
+                Console.WriteLine("ROLLBACK TRANSACTION");
             }
         }
 
         public void Update()
         {
-            Console.WriteLine("BEGIN TRANSCTION");
+            Console.WriteLine("BEGIN TRANSACTION");
             try
             {
                 DatabaseOperationsImplement.Update();
-                Console.WriteLine("\nCOMMITED TRANSCTION");
+                Console.WriteLine("COMMITED TRANSACTION\n");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ROLLBACK TRANSCTION");
+                Console.WriteLine("ROLLBACK TRANSACTION");
             }
         }
     }
